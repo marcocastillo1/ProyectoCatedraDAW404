@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>El salvador</title>
+<title>El salvador - Comentarios</title>
 <link rel="shortcut icon" href="images/pesta.png">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -84,7 +84,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								   		</ul>	
 								   </li>
 								   <li><a href="comentarios.html" >Comentarios</a></li>
-								   
 								 <div class="clear"> </div>
 								 </ul>
 							</div>
@@ -114,28 +113,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-----start-about-------->
 
 <div class="about" id="about">
-	<div class="wrap">
-	<h2>Departamento de Cuscatlán</h2>
-	<p>Historia</p>
-	<p id="parrafo1">Cuscatlán es un departamento que se ubica en la zona central de El Salvador. Este departamento posee los siguientes límites geográficos: al norte con el departamento de Chalatenango, al sur con La Paz y San Vicente, al este por los departamentos de Cabañas y San Vicente, y al oeste con San Salvador.</p>
-	<p id="parrafo2">Su nombre proviene de una población pipil precolombina, etimológicamente significa “lugar de joyas y collares”, que proviene de las voces “coxcatl”, “cuzcatl” o “cuzcat” (joya preciosa, cuenta de escapulario, collar) y “tlan” o “tan” (preposición locativa).<br><br>
-	
-	Cuscatlán fue fundado como departamento por decreto del Supremo Gobierno el 22 de mayo de 1835, y lo componían los distritos de Suchitoto, Cojutepeque, Ilobasco, Chalatenango, Tejutla y Opico, comprendiendo un total de 64 pueblos.<br><br>
-	
-	
-	El decreto de 14 de febrero de 1855 dividió el departamento en dos: Chalatenango y el actual departamento de Cuscatlán. Finalmente, el 10 de febrero de 1873, se decretó la erección del departamento de Cabañas, a expensas del de Cuscatlán y de San Vicente.<br><br>
-	
 
-	La cabecera fue en un principio la ciudad de Suchitoto, pero el 12 de noviembre de 1861 se trasladó a Cojutepeque.
-	</p>
-	<div>
-	<img src="images/cus.jpg">
+	<div id="dtext">
+	  <h4>Añadir comentario</h4>
+	  <input id="namebox" type="text" maxlength="32" size="20" placeholder="Nombre" />
+	  <br />
+	  <input id="emailbox" type="text" maxlength="32" size="20" placeholder="Email:" />
+	  <br />
+	  <textarea id="txt1" class="textbox" rows="6" placeholder="Ingrese su comentario:"></textarea>
+	<br>
+	<br>
+	<button class="navbutton" onClick="saveComment()">Añadir comentarios </button>
+	<button class="navbutton" onClick="clearComment()">Borrar todos los comentarios</button>
 	</div>
-	</div>
+
+	<h4>Comentarios</h4><br>
+	<div id="cmtlist"></div>
 </div>
-<!---------end-about------------->
-
-     <div class="footer-bottom">
+<script src="js/coment.js"></script>
+<div class="footer-bottom">
      	<div class="wrap">
         <div class="copy">
 		    <p class="copy">&#169 2017 DAW404 <a href="http://www.udb.edu.sv/udb/" target="_blank">UDB</a> </p>
@@ -145,6 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 <script src="js/jquery.scrollTo.js"></script>
 		</div>
 	</div>
+	<span id="datetime"></span>
 </body>
 </html>
 

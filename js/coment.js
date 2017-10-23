@@ -1,0 +1,56 @@
+// utility functions for localstorage
+function setObject(key, value) {
+  window.localStorage.setItem(key, JSON.stringify(value));
+}
+function getObject(key) {
+  var storage = window.localStorage,
+      value = storage.getItem(key);
+  return value && JSON.parse(value);
+}
+function clearStorage() {
+  window.localStorage.clear();
+}
+
+// Clear inputfields and localstorage
+function clearComment(){
+  $('#txt1').val('');
+  $('#namebox').val('');
+  $('#emailbox').val('');
+  clearStorage();
+}
+
+function saveComment(){
+  var cText = $('#txt1').val(),
+      cName = $('#namebox').val(),
+      cEmail = $('#emailbox').val(),
+      cmtList = getObject('cmtlist');
+
+  if (cmtList){
+    cmtList.push({name: cName,email: cEmail, text: cText});
+    setObject('cmtlist', cmtList);
+  }else{ //Add a comment
+    setObject('cmtlist', [{name: cName, email: cEmail, text: cText}]);
+  }
+
+  bindCmt();
+  var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+}
+
+function bindCmt(){
+  var cmtListElement = $('#cmtlist'),
+      cmtList = getObject('cmtlist');
+
+  //Out with the old
+  cmtListElement.empty();
+  //And in with the new
+  $.each(cmtList, function(i, k){
+    cmtListElement.append( $('<p><span>'+ k.name+', Email: '+ k.email +', escribio: </span>'+ k.text +'</p><p>Fecha y hora: <span id="datetime"></span></p>') );
+  });
+}
+
+//Get the comments on page ready
+$(function(){
+  bindCmt();
+});
+
